@@ -4,7 +4,7 @@ import Particles from "./effects/Particles";
 import Sun from "./models/Sun";
 import SolarSystem from "./models/SolarSystem";
 import Ufo from "./models/Ufo";
-import CameraController from "./Camera";
+import CameraController from "./camera";
 
 const Experience = () => {
   return (
