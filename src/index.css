@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-inter: 'Inter', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --color-brand-primary: #7c3aed; /* Deep premium Violet */
+  --color-brand-secondary: #06b6d4; /* Vivid Cyan */
+  --color-bg-dark: #030014; /* Deep, sleek, premium black hole */
+  --color-white: #f8fafc; /* Crisp off-white */
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #030014;
+  color: var(--color-white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  cursor: none; /* Make cursor none globally so our custom lag-free cursor displays */
+  position: relative;
+}
+
+/* Global Cyberpunk Grid Backdrop Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(3, 0, 20, 0) 0%, rgba(3, 0, 20, 0.8) 85%),
+    linear-gradient(rgba(255, 255, 255, 0.008) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px, 50px 50px;
+  pointer-events: none;
+  z-index: -99;
+}
+
+/* Custom glow scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 0, 20, 0.95);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-brand-primary) 0%, var(--color-brand-secondary) 100%);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-brand-secondary) 0%, var(--color-brand-primary) 100%);
+}
+
+/* Premium utility classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.42);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(6, 182, 212, 0.25);
+  box-shadow: 0 20px 50px 0 rgba(6, 182, 212, 0.12);
+}
+
+.glass-panel-heavy {
+  background: rgba(5, 2, 25, 0.7);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.55);
+}
+
+.glow-border {
+  transition: all 0.3s ease;
+}
+.glow-border:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.22), inset 0 0 15px rgba(6, 182, 212, 0.08);
+}
+
+.glow-border-primary {
+  transition: all 0.3s ease;
+}
+.glow-border-primary:hover {
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.22), inset 0 0 15px rgba(124, 58, 237, 0.08);
+}
+
+/* Scroll Progress indicator */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-brand-primary), var(--color-brand-secondary));
+  z-index: 100;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.7);
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.08); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 12s ease-in-out infinite;
+}
+
+/* Interactive card tilt transitions */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.tilt-card-inner {
+  transform: translateZ(20px);
+}
+
+/* Text glow */
+.text-glow-primary {
+  text-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+}
+.text-glow-secondary {
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+}
+
