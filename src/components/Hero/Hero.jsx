@@ -128,8 +128,13 @@ const Hero = () => {
               className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white font-outfit mb-6 leading-[0.92] select-none"
               style={{ textShadow: '0 8px 30px rgba(0, 0, 0, 0.95), 0 0 40px rgba(124,58,237,0.18)' }}
             >
-              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-purple-400 to-brand-secondary text-glow-secondary font-black">Ronak</span>
-              <span className="inline-block align-middle ml-3 animate-bounce">👋</span>
+              Hi, I'm{" "}
+              <span className="whitespace-nowrap">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-purple-400 to-brand-secondary text-glow-secondary font-black">
+                  Ronak
+                </span>
+                <span className="inline-block align-middle ml-3 animate-bounce">👋</span>
+              </span>
             </h1>
 
             {/* Glowing Accent Separator */}
