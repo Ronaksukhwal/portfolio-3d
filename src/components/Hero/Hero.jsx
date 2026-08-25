@@ -1,7 +1,8 @@
-import { Canvas } from "@react-three/fiber";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
-import Experience from "../../canvas/Experience";
+import { useState, useRef, useEffect, lazy, Suspense } from "react";
+
+const LazyCanvas = lazy(() => import("@react-three/fiber").then((m) => ({ default: m.Canvas })));
+const LazyExperience = lazy(() => import("../../canvas/Experience"));
 
 const Hero = () => {
   const cardRef = useRef(null);
@@ -59,9 +60,11 @@ const Hero = () => {
       {/* Global 3D background Experience */}
       {!isPastHero && (
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <Canvas camera={{ position: [0, 0.8, 8], fov: 45 }}>
-            <Experience />
-          </Canvas>
+          <Suspense fallback={null}>
+            <LazyCanvas camera={{ position: [0, 0.8, 8], fov: 45 }}>
+              <LazyExperience />
+            </LazyCanvas>
+          </Suspense>
         </div>
       )}
 
