@@ -37,18 +37,10 @@ const Particles = ({ count = 350 }) => {
     if (pointsRef.current) {
       const time = state.clock.getElapsedTime();
       
-      // Gentle floating rotation
+      // Hardware-accelerated GPU transforms without per-frame CPU buffer re-uploads
       pointsRef.current.rotation.y = time * 0.04;
       pointsRef.current.rotation.x = Math.sin(time * 0.02) * 0.08;
-      
-      // Wave bobbing effect
-      const positionsArray = pointsRef.current.geometry.attributes.position.array;
-      for (let i = 0; i < count; i++) {
-        const indexY = i * 3 + 1;
-        // Bob particles up and down slowly based on position
-        positionsArray[indexY] += Math.sin(time + positionsArray[i * 3]) * 0.0016;
-      }
-      pointsRef.current.geometry.attributes.position.needsUpdate = true;
+      pointsRef.current.position.y = Math.sin(time * 0.5) * 0.15;
     }
   });
 

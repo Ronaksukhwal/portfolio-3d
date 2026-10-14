@@ -23,8 +23,8 @@ const Planet = ({
   // Procedurally generate authentic textures for each planet type
   const planetTexture = useMemo(() => {
     const canvas = document.createElement("canvas");
-    canvas.width = 512;
-    canvas.height = 256;
+    canvas.width = 256;
+    canvas.height = 128;
     const ctx = canvas.getContext("2d");
 
     // 1. Fill base planet color

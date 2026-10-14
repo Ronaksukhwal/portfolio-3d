@@ -152,6 +152,7 @@ const About = ({ isSubpage = false }) => {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 onTimeUpdate={(e) => {
                   if (isSubpage && e.target.currentTime >= 20.0) {
                     e.target.currentTime = 0;

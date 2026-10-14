@@ -168,6 +168,7 @@ const Projects = () => {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover"
                 style={{ pointerEvents: "none" }}
               />

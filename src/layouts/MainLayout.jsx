@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import CustomCursor from "../components/CustomCursor";
 import TwinklingStars from "../components/Effects/TwinklingStars";
 
-const Home = lazy(() => import("../pages/Home"));
+import Home from "../pages/Home";
 const AboutPage = lazy(() => import("../pages/AboutPage"));
 const ExperiencePage = lazy(() => import("../pages/ExperiencePage"));
 const EducationPage = lazy(() => import("../pages/EducationPage"));

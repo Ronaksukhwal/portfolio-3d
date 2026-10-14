@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
 import "./TwinklingStars.css";
 
-const TwinklingStars = () => {
-  const [stars, setStars] = useState([]);
+const generateStars = () => {
+  const starCount = 85;
+  return Array.from({ length: starCount }).map((_, i) => {
+    const size = ((i * 7) % 20) / 10 + 0.8; // 0.8px to 2.8px
+    return {
+      id: i,
+      top: `${(i * 17.3) % 100}%`,
+      left: `${(i * 29.7) % 100}%`,
+      size,
+      delay: `${(i * 0.25) % 5}s`,
+      duration: `${((i * 0.4) % 3) + 2}s`,
+    };
+  });
+};
 
-  useEffect(() => {
-    // Generate a fixed set of random stars
-    const starCount = 120;
-    const generatedStars = Array.from({ length: starCount }).map((_, i) => {
-      const size = Math.random() * 2.2 + 0.8; // 0.8px to 3px
-      return {
-        id: i,
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        size,
-        delay: `${Math.random() * 6}s`,
-        duration: `${Math.random() * 4 + 2}s`, // 2s to 6s twinkle cycles
-      };
-    });
-    setStars(generatedStars);
-  }, []);
+const TwinklingStars = () => {
+  const [stars] = useState(generateStars);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-50] bg-[#030014]">

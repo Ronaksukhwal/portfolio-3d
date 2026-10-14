@@ -5,7 +5,7 @@ const StarsCanvas = () => {
     <Stars
       radius={100}
       depth={50}
-      count={5000}
+      count={2500}
       factor={4}
       saturation={0}
       fade
